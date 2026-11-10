@@ -1,0 +1,83 @@
+{
+  "config": {
+    "determinism_runs": 10,
+    "docs_per_layout": 40,
+    "seed": 7,
+    "tolerances": {
+      "design_pressure_barg": 0.05,
+      "design_temp_c": 0.5,
+      "power_kw": 0.5
+    }
+  },
+  "determinism": {
+    "documents": 160,
+    "documents_with_differing_output": 0,
+    "runs_each": 10
+  },
+  "layouts": {
+    "A": {
+      "all_fields_correct": 40,
+      "docs": 40,
+      "field_accuracy": {
+        "design_pressure_barg": 1.0,
+        "design_temp_c": 1.0,
+        "material": 1.0,
+        "power_kw": 1.0,
+        "service": 1.0,
+        "tag": 1.0
+      },
+      "ok_but_wrong": 0,
+      "status_needs_review": 0,
+      "status_ok": 40,
+      "values_where_truth_is_none": 0
+    },
+    "B": {
+      "all_fields_correct": 40,
+      "docs": 40,
+      "field_accuracy": {
+        "design_pressure_barg": 1.0,
+        "design_temp_c": 1.0,
+        "material": 1.0,
+        "power_kw": 1.0,
+        "service": 1.0,
+        "tag": 1.0
+      },
+      "ok_but_wrong": 0,
+      "status_needs_review": 0,
+      "status_ok": 40,
+      "values_where_truth_is_none": 0
+    },
+    "C": {
+      "all_fields_correct": 40,
+      "docs": 40,
+      "field_accuracy": {
+        "design_pressure_barg": 1.0,
+        "design_temp_c": 1.0,
+        "material": 1.0,
+        "power_kw": 1.0,
+        "service": 1.0,
+        "tag": 1.0
+      },
+      "ok_but_wrong": 0,
+      "status_needs_review": 0,
+      "status_ok": 40,
+      "values_where_truth_is_none": 0
+    },
+    "D": {
+      "all_fields_correct": 0,
+      "docs": 40,
+      "field_accuracy": {
+        "design_pressure_barg": 0.0,
+        "design_temp_c": 0.0,
+        "material": 0.0,
+        "power_kw": 1.0,
+        "service": 0.0,
+        "tag": 1.0
+      },
+      "ok_but_wrong": 0,
+      "status_needs_review": 40,
+      "status_ok": 0,
+      "values_where_truth_is_none": 0
+    }
+  }
+}
