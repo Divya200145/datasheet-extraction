@@ -68,8 +68,13 @@ Determinism: 160 documents x 10 runs, 0 differing outputs. Full tables are in `r
 
 The result I care about is the last column: the pipeline did not produce a confident wrong answer on the layout it did not know. The perfect scores on A-C are expected for self-generated data and should not be quoted as accuracy.
 
+## Real public PDFs: a negative result
+
+I also tried the unmodified pipeline on real, freely downloadable PDFs (INOXPA, KSB, Alfa Laval, Goulds, Spirax Sarco). Of 11 files only two were relevant equipment documents, and both are product-series datasheets, not tagged per-item datasheets. The pipeline extracted none of the required fields from them (everything went to `needs_review`) and made a wrong tag guess on several INOXPA pages (a material code, `GG-22`). There is therefore **no real-world accuracy figure**. Details are in [`real_data/FINDINGS.md`](real_data/FINDINGS.md); `scripts/try_real_pdfs.py` reproduces the run on any folder of PDFs.
+
 ## Known limitations / next steps
 
-- Real documents will be messier (skew, scans, merged cells, multi-page items, vendor-specific abbreviations). The vocabulary in `templates.py` is hand-built and would need to grow with real samples.
-- Tag pattern-scan can pick up tag-shaped identifiers that are not equipment tags; there is a small stop-list and an ambiguity check, but it is not exhaustive.
-- Next steps I would take: run it on a small set of real public vendor datasheets with hand-labelled ground truth, add OCR for scans, and add multi-row schedule table support.
+- Real documents are messier than the synthetic ones (skew, scans, merged cells, multi-page items, vendor-specific abbreviations). The vocabulary in `templates.py` is hand-built and does not yet cover real vendor labels.
+- Real catalogue datasheets describe a product series with ranges, which the "one tagged item per page" schema does not model.
+- Tag pattern-scan can pick up tag-shaped identifiers that are not equipment tags (seen on real data: a material code); the stop-list is not exhaustive.
+- Next steps I would take: build a small hand-labelled set of real per-item datasheets, extend the vocabulary from it (and evaluate on separate documents), add a series-datasheet mode, add OCR for scans, and add multi-row schedule table support.
